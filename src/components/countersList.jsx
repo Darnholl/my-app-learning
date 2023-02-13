@@ -20,12 +20,22 @@ const CountersList = () => {
     setCounters(initialState);
     console.log("reset");
   };
+  // const handleIncrement = (id) => {
+  //   // counters[id].value = counters[id].value + 1;
+  //   const tst = counters;
+  //   tst[id].value = tst[id].value + 1;
+  //   console.log(tst);
+  //   setCounters(tst);
+  // };
+
+  // Не пойму почему этот метод не работает, хотя тоже возвращается новый массив и так же передается в setCounters???
+
   const handleIncrement = (id) => {
-    // counters[id].value = counters[id].value + 1;
-    const tst = counters;
-    tst[id].value = tst[id].value + 1;
-    console.log(tst);
-    setCounters(tst);
+    const newCount = counters.map((item) => ({
+      ...item,
+      value: item.id === id ? item.value + 1 : item.value,
+    }));
+    setCounters(newCount);
   };
 
   const handleDecrement = (id) => {
