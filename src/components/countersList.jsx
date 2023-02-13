@@ -11,35 +11,41 @@ const CountersList = () => {
   ];
 
   const [counters, setCounters] = useState(initialState);
+
   const handleDelete = (id) => {
     console.log("handleDelete", id);
     const newCounters = counters.filter((c) => c.id !== id);
     setCounters(newCounters);
   };
+
   const handleReset = () => {
     setCounters(initialState);
     console.log("reset");
   };
-  // const handleIncrement = (id) => {
-  //   // counters[id].value = counters[id].value + 1;
-  //   const tst = counters;
-  //   tst[id].value = tst[id].value + 1;
-  //   console.log(tst);
-  //   setCounters(tst);
-  // };
+
+  const handleIncrement = (id) => {
+    //   // counters[id].value = counters[id].value + 1;
+    const tst = [...counters];
+    tst[id].value = tst[id].value + 1;
+    // console.log(tst);
+    // console.log(counters);
+    setCounters(tst);
+  };
 
   // Не пойму почему этот метод не работает, хотя тоже возвращается новый массив и так же передается в setCounters???
 
-  const handleIncrement = (id) => {
-    const newCount = counters.map((item) => ({
-      ...item,
-      value: item.id === id ? item.value + 1 : item.value,
-    }));
-    setCounters(newCount);
-  };
+  // const handleIncrement = (id) => {
+  //   const newCount = counters.map((item) => ({
+  //     ...item,
+  //     value: item.id === id ? item.value + 1 : item.value,
+  //   }));
+  //   setCounters(newCount);
+  // };
 
   const handleDecrement = (id) => {
-    console.log("-", id);
+    const tst = [...counters];
+    tst[id].value = tst[id].value - 1;
+    setCounters(tst);
   };
   return (
     // <>

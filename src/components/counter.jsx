@@ -12,6 +12,10 @@ const Counter = (props) => {
     return classes;
   };
 
+  // const handleIncrement = (id) => {
+  //   return () => props.onIncrement(id);
+  // };
+
   return (
     <div>
       <span>{props.name}</span>
@@ -19,7 +23,7 @@ const Counter = (props) => {
       <button
         className="btn btn-primary btn-sm m-2"
         onClick={() => props.onIncrement(props.id)}>
-        +
+        {/* onClick={handleIncrement(props.id)}> */}+
       </button>
       <button
         className="btn btn-primary btn-sm m-2"
